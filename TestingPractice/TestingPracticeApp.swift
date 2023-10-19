@@ -2,7 +2,7 @@
 //  TestingPracticeApp.swift
 //  TestingPractice
 //
-//  Created by Najia Haider on 9/11/23.
+//  Created by NH on 9/11/23.
 //
 
 import SwiftUI
@@ -11,7 +11,29 @@ import SwiftUI
 struct TestingPracticeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                PeopleView()
+                    .tabItem {
+                        Symbols.person
+                        Text("Home")
+                }
+                SettingsView()
+                    .tabItem {
+                        Symbols.gear
+                        Text("Settings")
+                    }
+            }
         }
     }
 }
+
+// Structure of your app
+// base - accessed by everyone
+// ///////Views -- shared across multiple features
+// resources - all files related to resources
+// features -> component of app (like list of people, create, settings)
+// ///////People -> views, models, viewModels
+// ///////Create --> views, models, viewModels
+// ///////Settings --> views (doesn't need a VM because it doesn't interact with a service)
+//
+
